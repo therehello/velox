@@ -583,3 +583,14 @@ if(VELOX_ENABLE_ARROW)
 endif()
 
 add_subdirectory(velox)
+
+install(
+  EXPORT veloxTargets
+  NAMESPACE velox::
+  DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
+
+configure_package_config_file(
+  CMake/veloxConfig.cmake.in "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
+  INSTALL_DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
+install(FILES "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
+        DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")

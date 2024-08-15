@@ -53,4 +53,7 @@ velox_add_library(velox_dwio_dwrf_proto ${PROTO_HDRS} ${PROTO_SRCS})
 #
 # #include "velox/dwio/dwrf/proto/dwrf_proto.pb.h"
 velox_link_libraries(velox_dwio_dwrf_proto protobuf::libprotobuf)
-velox_include_directories(velox_dwio_dwrf_proto PUBLIC ${PROJECT_BINARY_DIR})
+velox_include_directories(
+  velox_dwio_dwrf_proto PUBLIC $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}>
+                               $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+install(FILES ${PROTO_HDRS} DESTINATION include/velox/dwio/dwrf/proto)

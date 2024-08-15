@@ -24,3 +24,17 @@ add_subdirectory(process)
 add_subdirectory(serialization)
 add_subdirectory(time)
 add_subdirectory(testutil)
+
+install(
+  DIRECTORY future
+  DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/velox/common"
+  FILES_MATCHING
+  PATTERN "*.inc"
+  PATTERN "*.h")
+
+install(
+  DIRECTORY strings
+  DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/velox/common"
+  FILES_MATCHING
+  PATTERN "*.inc"
+  PATTERN "*.h")

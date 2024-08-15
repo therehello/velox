@@ -43,3 +43,10 @@ velox_link_libraries(
   velox_caching
   Snappy::snappy
   zstd::zstd)
+
+install(
+  DIRECTORY wrap
+  DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/velox/dwio/dwrf/common"
+  FILES_MATCHING
+  PATTERN "*.inc"
+  PATTERN "*.h")
