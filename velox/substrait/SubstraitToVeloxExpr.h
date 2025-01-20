@@ -67,6 +67,7 @@ class SubstraitVeloxExprConverter {
       const RowTypePtr& inputType);
 
   void setSubstraitParser(std::shared_ptr<SubstraitParser> substraitParser) {
+    VELOX_CHECK_NOT_NULL(substraitParser, "SubstraitParser cannot be null");
     substraitParser_ = std::move(substraitParser);
   }
 
